@@ -1,5 +1,7 @@
+import { PagesRoutes } from "./pageRoutes";
+
 const App: React.FC = () => {
-  return <h1>POkemon</h1>;
+  return <PagesRoutes />;
 };
 
 export default App;
