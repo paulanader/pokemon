@@ -1,7 +1,13 @@
 import { PagesRoutes } from "./pageRoutes";
+import { GlobalStyle } from "./styles/global";
 
 const App: React.FC = () => {
-  return <PagesRoutes />;
+  return (
+    <>
+      <GlobalStyle />
+      <PagesRoutes />
+    </>
+  );
 };
 
 export default App;
