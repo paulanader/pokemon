@@ -1,9 +1,9 @@
-import { ReactElement, ReactNode } from "react";
+import { ReactElement, ReactNode } from 'react';
 
 export const Wrapper = ({
-  children,
+    children,
 }: {
-  children: ReactNode;
+    children: ReactNode;
 }): ReactElement => {
-  return <div className="min-vh-100 d-flex flex-column">{children}</div>;
+    return <div className="min-vh-100 d-flex flex-column">{children}</div>;
 };

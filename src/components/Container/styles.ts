@@ -1,6 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Main = styled.div`
-  max-width: 1120px;
-  margin: 0 auto;
+    background-color: #fff;
+    border-radius: 30px 30px 0 0;
+
+    @media (min-width: 768px) {
+        border-radius: 30px;
+        margin-bottom: 60px;
+    }
 `;

@@ -1,17 +1,12 @@
-import axios from "axios";
+import { setup } from 'axios-cache-adapter';
 
-const Api = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL ?? "",
-});
-
-Api.interceptors.request.use((config) => {
-  const newConfig = config;
-
-  newConfig.params = {
-    ...config.params,
-    token: process.env.REACT_APP_TOKEN ?? "",
-  };
-  return newConfig;
+const Api = setup({
+    baseURL: process.env.REACT_APP_API_BASE_URL ?? '',
+    cache: {
+        maxAge: 60 * 60 * 24 * 365 * 1000,
+        readHeaders: true,
+        exclude: { query: false },
+    },
 });
 
 export default Api;
