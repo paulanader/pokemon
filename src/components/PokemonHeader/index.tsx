@@ -3,10 +3,10 @@ import { IoMdHeartEmpty } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { getNumber, getUppercase } from '../../utils/data';
 import { MainHeader } from './styles';
-import { PokemonType } from '../../@type/PokemonType';
-import { CategoriesPill } from '../CategoryPill';
-import { CategoryType } from '../../@type/CategoryType';
-import { PokemonSpecieType } from '../../@type/PokemonSpecieType';
+import { PokemonType } from '../../@types/PokemonType';
+import { CategoryType } from '../../@types/CategoryType';
+import { PokemonSpecieType } from '../../@types/PokemonSpecieType';
+import { CategoryPills } from '../CategoryPills';
 
 interface IPokemonHeaderProps {
     title: string;
@@ -33,13 +33,13 @@ const PokemonHeader: React.FC<IPokemonHeaderProps> = ({
                 <div className="d-flex align-items-center justify-content-between mb-3">
                     <h1>{getUppercase(title)}</h1>
                     {pokemon && (
-                        <span className="fw-bold">{`# ${getNumber(
+                        <span className="fw-bold">{`#${getNumber(
                             pokemon.id
                         )}`}</span>
                     )}
                 </div>
                 <div>
-                    <CategoriesPill
+                    <CategoryPills
                         categories={categories}
                         color={pokemonSpecie.color.name}
                     />

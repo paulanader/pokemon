@@ -1,7 +1,6 @@
 import { FaWeight } from 'react-icons/fa';
 import { BiRuler, BiMaleSign, BiFemaleSign } from 'react-icons/bi';
 import { useMemo } from 'react';
-import { PokemonType } from '../../@type/PokemonType';
 import {
     divisionBy10,
     femaleGenderPercent,
@@ -9,9 +8,10 @@ import {
     maleGenderPercent,
     slugToCapitalized,
 } from '../../utils/data';
-import { PokemonSpecieType } from '../../@type/PokemonSpecieType';
 import { BlockStyles, Container } from './styles';
 import { ProgressBar } from '../ProgressBar';
+import { PokemonType } from '../../@types/PokemonType';
+import { PokemonSpecieType } from '../../@types/PokemonSpecieType';
 
 interface IInformationsProps {
     pokemon: PokemonType;
@@ -50,7 +50,7 @@ const Informations: React.FC<IInformationsProps> = ({
                     </div>
                     <div className="fw-lighter mt-auto">Height</div>
                 </div>
-                <div className="col d-flex flex-column border-end text-center">
+                <div className="col d-flex flex-column text-center">
                     <div className="d-flex align-items-center justify-content-center">
                         <p>{slugToCapitalized(pokemon.moves[0].move.name)}</p>
                     </div>
@@ -84,7 +84,7 @@ const Informations: React.FC<IInformationsProps> = ({
                     <div>
                         {pokemon.stats.map(stat => {
                             return (
-                                <div key={stat.effort} className="mb-1">
+                                <div key={stat.stat.name} className="mb-1">
                                     <div className="row row-cols-3 align-items-center justify-content-start">
                                         <div className="col-3">
                                             <span>

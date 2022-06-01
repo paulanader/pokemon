@@ -4,8 +4,9 @@ export const GlobalStyle = createGlobalStyle`
     :root {
     --black90: rgba(0, 0, 0, 0.9);
     --dark: #333;
-    --gray: #282828;
-   --lightGray : #A0AEC0;
+    --gray: #3f3f3f;
+    --lightGray: #A0AEC0;
+    --lighter-gray:#e0e0e0;
     --white: #ffffff;
     --light: #f8f9fa;
     --green: #68d3ae;
@@ -64,7 +65,7 @@ export const GlobalStyle = createGlobalStyle`
     };
 
     .white {
-        background-color: var(--white);
+        background-color: var(--lighter-gray);
         color: var(--dark);
     };
 
@@ -73,17 +74,8 @@ export const GlobalStyle = createGlobalStyle`
         color: var(--white);
     };
 
-    .subway-item::after {
-        content: '';
-        display: block;
-        width: 10px;
-        height: 10px;
-        -moz-border-radius: 7.5px;
-        -webkit-border-radius: 7.5px;
-        border-radius: 7.5px;
-        background-color: var(--red);
-        transform: translate(65px, -7px);
-    }
-
-    
+    .pink { 
+        background-color: var(--pink);
+        color: var(--white);
+    };
 `;

@@ -1,4 +1,4 @@
-import { PokemonType } from '../../@type/PokemonType';
+import { PokemonType } from '../../@types/PokemonType';
 import { Container, Picture } from './styles';
 
 interface IPokemonImageProps {

@@ -12,16 +12,15 @@ export const OverFlow = styled.ul`
 
 export const StylesPill = styled.div`
     border-radius: 20px;
-    font-size: 12px;
+    font-size: 10px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30px;
     white-space: nowrap;
     background-color: rgba(255, 255, 255, 0.2);
     color: var(--white);
-    padding: 0 15px;
+    padding: 2px 10px;
     margin-right: 0.5rem;
 
     &.pill-yellow,

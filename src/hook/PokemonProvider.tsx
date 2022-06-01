@@ -5,10 +5,10 @@ import {
     useContext,
     useMemo,
 } from 'react';
-import { CategoryType } from '../@type/CategoryType';
-import { PokemonSpecieType } from '../@type/PokemonSpecieType';
-import { PokemonType } from '../@type/PokemonType';
-import Api from '../services/api';
+import { CategoryType } from '../@types/CategoryType';
+import { PokemonSpecieType } from '../@types/PokemonSpecieType';
+import { PokemonType } from '../@types/PokemonType';
+import { Api, GraphQL } from '../services/api';
 
 interface IPokemonContextProp {
     pokemons: PokemonType[];
@@ -16,7 +16,7 @@ interface IPokemonContextProp {
     pokemonSpecie: PokemonSpecieType | null;
     categories: CategoryType[];
     isLoading: boolean;
-    pageCount: number;
+    isLastPage: boolean;
     currentPage: number;
     setCategories: (categories: CategoryType[]) => void;
     getPokemons: (page: number) => void;
@@ -50,8 +50,8 @@ export const PokemonProvider: React.FC<IPokemonProviderProps> = ({
     const [pokemonSpecie, setPokemonSpecie] =
         useState<PokemonSpecieType | null>(null);
     const [categories, setCategories] = useState<CategoryType[]>([]);
-    const [pageCount, setPageCount] = useState(0);
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [isLastPage, setIsLastPage] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
     const getPokemons = useCallback((page = 1) => {
@@ -59,30 +59,36 @@ export const PokemonProvider: React.FC<IPokemonProviderProps> = ({
         const offset = limit * (page - 1);
         setIsLoading(true);
 
-        const params: { page: number; limit: number; offset: number } = {
-            page,
-            limit,
-            offset,
-        };
-
         setCurrentPage(page);
 
-        Api.get('/pokemon', { params })
+        GraphQL.post('/', {
+            query: `query listPokemonQuery {
+                pokemons: pokemon_v2_pokemonspecies(order_by: {id: asc}, limit:${limit}, offset:${offset}) {
+                  name
+                  id
+                  color: pokemon_v2_pokemoncolor {
+                    name
+                  }
+                  meta: pokemon_v2_pokemons {
+                    types: pokemon_v2_pokemontypes {
+                      type: pokemon_v2_type {
+                        name
+                      }
+                    }
+                  }
+                }
+              }`,
+        })
             .then(response => {
-                setPokemons(response?.data?.results);
-                setPageCount(
-                    limit > 0
-                        ? Math.ceil((response.data?.count ?? 0) / limit)
-                        : Math.ceil((response.data?.count ?? 0) / 1)
-                );
+                setPokemons(prev => [
+                    ...prev,
+                    ...(response?.data?.data?.pokemons ?? []),
+                ]);
+                if (response?.data?.data?.pokemons?.length < 24) {
+                    setIsLastPage(true);
+                }
             })
-            .catch(() => {
-                setPokemons([]);
-                setPageCount(0);
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
+            .catch(() => setIsLastPage(false));
     }, []);
 
     const getPokemon = useCallback(async (name?: string) => {
@@ -114,10 +120,10 @@ export const PokemonProvider: React.FC<IPokemonProviderProps> = ({
             pokemons,
             pokemonSpecie,
             isLoading,
-            pageCount,
             currentPage,
             pokemon,
             categories,
+            isLastPage,
             setCategories,
             getPokemons,
             getPokemon,
@@ -127,10 +133,10 @@ export const PokemonProvider: React.FC<IPokemonProviderProps> = ({
             pokemons,
             pokemonSpecie,
             isLoading,
-            pageCount,
             currentPage,
             pokemon,
             categories,
+            isLastPage,
             setCategories,
             getPokemons,
             getPokemon,

@@ -1,22 +1,18 @@
-import { Cover, StylesImage } from './styles';
+import { StylesImage } from './styles';
 
 interface IActorsProps {
     image: string;
 }
 const Avatar: React.FC<IActorsProps> = ({ image }) => {
     return (
-        <Cover className="">
+        <div className="d-flex justify-content-center">
             <StylesImage
-                className="me-3 d-inline-flex subway-item border border-2 border-white"
+                className="border border-2 border-white"
                 style={{
-                    width: 70,
-                    height: 70,
                     backgroundImage: `url(${image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center center',
                 }}
             />
-        </Cover>
+        </div>
     );
 };
 

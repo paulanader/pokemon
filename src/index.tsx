@@ -1,12 +1,9 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+    <App />
 );
