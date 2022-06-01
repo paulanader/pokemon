@@ -15,7 +15,7 @@ Pré-requisitos:
 
 Após clonar o projeto e instalar os pré-requisitos, execute a partir da pasta raiz:
 ```
-npm install4
+npm install
 ```
 ou
 ```
