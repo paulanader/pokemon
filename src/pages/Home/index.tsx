@@ -5,6 +5,7 @@ import { Container } from '../../components/Container';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { Loading } from '../../components/Loading';
+import Title from '../../components/Title';
 import { Wrapper } from '../../components/Wrapper';
 import { usePokemons } from '../../hook/PokemonProvider';
 
@@ -21,9 +22,7 @@ const Home: React.FC = () => {
             <Header />
             {pokemons && (
                 <Container>
-                    <h1 className="fw-bold fs-6 mt-4 mb-4 text-wrap">
-                        Which pokemon would you choose?
-                    </h1>
+                    <Title title="Which pokemon would you choose?" />
                     <InfiniteScroll
                         className="mt-2"
                         dataLength={pokemons.length}

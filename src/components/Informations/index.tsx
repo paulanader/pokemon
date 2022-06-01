@@ -58,7 +58,7 @@ const Informations: React.FC<IInformationsProps> = ({
                 </div>
             </BlockStyles>
             <div>
-                <h3 className="mb-3">Characteres</h3>
+                <h3 className="mb-3">Features</h3>
                 <div>
                     <div className="align-items-center mb-1">
                         <div className="row row-cols-2">
