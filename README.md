@@ -42,4 +42,4 @@ yarn start
 
 Possíveis causas:
 - O arquivo .env não foi criado corretamente a partir do .env.example
-- A API está instável e não responde (verifique na aba "Network" do console do navegador se as requisições estão retornando ou se ficam pendentes indefinidamente)4
+- A API está instável e não responde (verifique na aba "Network" do console do navegador se as requisições estão retornando ou se ficam pendentes indefinidamente)
