@@ -78,4 +78,14 @@ export const GlobalStyle = createGlobalStyle`
         background-color: var(--pink);
         color: var(--white);
     };
+
+    .gray { 
+        background-color: var(--gray);
+        color: var(--white);
+    };
+
+    .black { 
+        background-color: var(--black90);
+        color: var(--white);
+    };
 `;

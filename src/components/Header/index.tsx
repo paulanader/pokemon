@@ -8,10 +8,10 @@ const Header: React.FC = () => {
             <div className="container">
                 <div className="d-flex text-white align-items-center justify-content-between">
                     <div className="py-3">
-                        <h1 className="m-0 fs-5">Olá, Ash Ketchum</h1>
+                        <h1 className="m-0 fs-5">Hello, Ash Ketchum</h1>
                         <div className="d-flex align-items-center">
                             <span className="me-1 text-center fs-6">
-                                Bem-vindo!
+                                Welcome!
                             </span>
                             <BsEmojiSmileFill className="text-warning text-center" />
                         </div>
