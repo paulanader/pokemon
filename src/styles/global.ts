@@ -43,9 +43,15 @@ export const GlobalStyle = createGlobalStyle`
         background-color: var(--green);
         color: var(--white);
     };
+    a.green:hover {
+        color: var(--white);
+    };
 
     .yellow {
         background-color: var(--yellow);
+        color: var(--dark);
+    };
+    a.yellow:hover {
         color: var(--dark);
     };
 
@@ -54,13 +60,25 @@ export const GlobalStyle = createGlobalStyle`
         color: var(--white);
     };
 
+    a.purple:hover {
+        color: var(--white);
+    };
+
     .red {
         background-color: var(--red);
         color: var(--white);
-    }
+    };
+
+    a.red:hover {
+        color: var(--white);
+    };
 
     .blue {
         background-color: var(--blue);
+        color: var(--dark);
+    };
+
+    a.blue:hover {
         color: var(--dark);
     };
 
@@ -69,8 +87,16 @@ export const GlobalStyle = createGlobalStyle`
         color: var(--dark);
     };
 
+    a.white:hover {
+        color: var(--dark);
+    };
+
     .brown { 
         background-color: var(--brown);
+        color: var(--white);
+    };
+
+    a.brown:hover {
         color: var(--white);
     };
 
@@ -79,13 +105,25 @@ export const GlobalStyle = createGlobalStyle`
         color: var(--white);
     };
 
+    a.pink:hover {
+        color: var(--white);
+    };
+
     .gray { 
         background-color: var(--gray);
         color: var(--white);
     };
 
+    a.gray:hover {
+        color: var(--white);
+    };
+
     .black { 
         background-color: var(--black90);
+        color: var(--white);
+    };
+
+    a.black:hover {
         color: var(--white);
     };
 `;

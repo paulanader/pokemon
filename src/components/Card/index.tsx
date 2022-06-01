@@ -14,9 +14,9 @@ export const Card: React.FC<IHomeCardProps> = ({ pokemon }) => {
             className={`card text-white border-0 align-self-stretch w-100 p-2 ${pokemon.color.name}`}
         >
             <div className="card-body p-0">
-                <Id className="fw-bold text-end">{`#${getNumber(
-                    pokemon.id
-                )}`}</Id>
+                <Id
+                    className={`fw-bold text-end ${pokemon.color.name}`}
+                >{`#${getNumber(pokemon.id)}`}</Id>
                 <div className="d-flex">
                     <div style={{ flexBasis: '50%' }}>
                         <h1
@@ -25,7 +25,7 @@ export const Card: React.FC<IHomeCardProps> = ({ pokemon }) => {
                         >
                             <Title
                                 to={`/${pokemon.name}`}
-                                className={pokemon.color.name}
+                                className={`${pokemon.color.name} stretched-link`}
                             >
                                 {slugToCapitalized(pokemon.name)}
                             </Title>

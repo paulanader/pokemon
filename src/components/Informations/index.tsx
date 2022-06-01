@@ -68,15 +68,15 @@ const Informations: React.FC<IInformationsProps> = ({
                             <div className="col-8">
                                 <BiMaleSign className="colorPurple" />
                                 <span className="me-3">
-                                    {maleGenderPercent(
+                                    {`${maleGenderPercent(
                                         pokemonSpecie.gender_rate
-                                    )}
+                                    )}%`}
                                 </span>
                                 <BiFemaleSign className="colorPink" />
                                 <span>
-                                    {femaleGenderPercent(
+                                    {`${femaleGenderPercent(
                                         pokemonSpecie.gender_rate
-                                    )}
+                                    )}%`}
                                 </span>
                             </div>
                         </div>

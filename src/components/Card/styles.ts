@@ -12,5 +12,6 @@ export const BackgroundCard = styled.div`
 
 export const Id = styled.div`
     font-size: 0.85rem;
-    color: rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    opacity: 0.5;
 `;

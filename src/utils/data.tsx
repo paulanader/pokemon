@@ -22,11 +22,17 @@ export const divisionBy10 = (value: number): number => {
 };
 
 export const femaleGenderPercent = (value: number): number => {
-    return (value / 8) * 100;
+    let result = (value / 8) * 100;
+    if (result > 100) result = 100;
+    if (result < 0) result = 0;
+    return result;
 };
 
 export const maleGenderPercent = (value: number): number => {
-    return 100 - (value / 8) * 100;
+    let result = 100 - (value / 8) * 100;
+    if (result > 100) result = 100;
+    if (result < 0) result = 0;
+    return result;
 };
 
 export const removeHyphen = (value: string): string => {

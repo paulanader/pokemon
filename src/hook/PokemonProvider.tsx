@@ -4,6 +4,7 @@ import {
     useState,
     useContext,
     useMemo,
+    useEffect,
 } from 'react';
 import { CategoryType } from '../@types/CategoryType';
 import { PokemonSpecieType } from '../@types/PokemonSpecieType';
@@ -89,6 +90,11 @@ export const PokemonProvider: React.FC<IPokemonProviderProps> = ({
                 }
             })
             .catch(() => setIsLastPage(false));
+    }, []);
+
+    useEffect(() => {
+        getPokemons(1);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const getPokemon = useCallback(async (name?: string) => {

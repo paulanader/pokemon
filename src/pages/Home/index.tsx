@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Card } from '../../components/Card';
 import { Container } from '../../components/Container';
@@ -10,11 +9,6 @@ import { usePokemons } from '../../hook/PokemonProvider';
 
 const Home: React.FC = () => {
     const { pokemons, isLastPage, currentPage, getPokemons } = usePokemons();
-
-    useEffect(() => {
-        getPokemons(1);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     return (
         <Wrapper>
