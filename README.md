@@ -36,6 +36,7 @@ ou
 yarn start
 
 
+
 ### Problemas conhecidos
 1- A página inicial fica carregando por muito tempo e não exibe a lista de Pokémons
 
