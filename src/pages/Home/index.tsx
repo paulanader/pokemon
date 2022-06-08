@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Card } from '../../components/Card';
 import { Container } from '../../components/Container';
@@ -8,7 +9,12 @@ import { Wrapper } from '../../components/Wrapper';
 import { usePokemons } from '../../hook/PokemonProvider';
 
 const Home: React.FC = () => {
-    const { pokemons, isLastPage, currentPage, getPokemons } = usePokemons();
+    const { pokemons, isLastPage, currentPage, getPokemons, setPokemon } =
+        usePokemons();
+
+    useEffect(() => {
+        setPokemon(null);
+    });
 
     return (
         <Wrapper>

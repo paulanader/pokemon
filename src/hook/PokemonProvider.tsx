@@ -14,6 +14,7 @@ import { Api, GraphQL } from '../services/api';
 interface IPokemonContextProp {
     pokemons: PokemonType[];
     pokemon: PokemonType | null;
+    setPokemon: (pokemon: PokemonType | null) => void;
     pokemonSpecie: PokemonSpecieType | null;
     categories: CategoryType[];
     isLoading: boolean;
@@ -130,6 +131,7 @@ export const PokemonProvider: React.FC<IPokemonProviderProps> = ({
             pokemon,
             categories,
             isLastPage,
+            setPokemon,
             setCategories,
             getPokemons,
             getPokemon,
@@ -144,6 +146,7 @@ export const PokemonProvider: React.FC<IPokemonProviderProps> = ({
             categories,
             isLastPage,
             setCategories,
+            setPokemon,
             getPokemons,
             getPokemon,
             getPokemonSpecies,
